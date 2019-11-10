@@ -1,5 +1,5 @@
 {% set name = "ase-notebook" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 4746b8b4281ebf7090d5fa674ac61c6e782513a2f43a1b7ae9045d1508c41b18
+  sha256: 9be0e78d4ffebdf9eda881664187154f2439942131dfd40157e1cad36e606cbb
 
 build:
   number: 0
