@@ -1,20 +1,20 @@
 {% set name = "ase-notebook" %}
-{% set version = "0.3.1" %}
+{% set version = "0.3.2" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 9be0e78d4ffebdf9eda881664187154f2439942131dfd40157e1cad36e606cbb
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 79e9ca9ca50b0c00e5bdb90b4cb02eebe9fbac8cd48da1ddec7f0d1330a75791
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - ase-notebook.view_atoms = ase_notebook.viewer:launch_gui_exec
-  noarch: "python"
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  noarch: python
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
   host:
@@ -40,12 +40,12 @@ test:
     - ase_notebook.data
 
 about:
-  home: "https://github.com/chrisjsewell/ase-notebook"
-  license: "MIT"
-  license_family: "MIT"
-  license_file: "LICENSE"
-  summary: "Highly configurable 2D (SVG) & 3D (threejs) visualisations for ASE/Pymatgen structures, within the Jupyter Notebook"
-  doc_url: "https://ase-notebook.readthedocs.io/"
+  home: https://github.com/chrisjsewell/ase-notebook
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: Highly configurable 2D (SVG) & 3D (threejs) visualisations for ASE/Pymatgen structures, within the Jupyter Notebook
+  doc_url: https://ase-notebook.readthedocs.io/
 
 extra:
   recipe-maintainers:
