@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 79e9ca9ca50b0c00e5bdb90b4cb02eebe9fbac8cd48da1ddec7f0d1330a75791
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - ase-notebook.view_atoms = ase_notebook.viewer:launch_gui_exec
   noarch: python
@@ -19,7 +19,7 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.5
+    - python {{ python_min }}
     - setuptools
   run:
     - ase >=3.18,<4
@@ -28,12 +28,14 @@ requirements:
     - ipywidgets >=7.5,<8
     - matplotlib-base >=3.1,<4
     - numpy >=1.16
-    - python >=3.5
+    - python >={{ python_min }}
     - pythreejs >=2.1,<3
     - svgutils >=0.3,<0.4
     - svgwrite >=1.3,<2
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - ase_notebook
     - ase_notebook.backend
